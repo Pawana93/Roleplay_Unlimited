@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability : ScriptableObject {
+public class AbilityBehaviors : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
