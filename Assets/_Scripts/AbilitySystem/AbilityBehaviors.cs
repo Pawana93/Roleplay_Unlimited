@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class AbilityBehaviors : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	private BasicObjectInformation objectInfo;
+	private BehaviorStartTimes startTime;
+
+	public AbilityBehaviors(BasicObjectInformation basicInfo, BehaviorStartTimes sTime)
+	{
+		objectInfo = basicInfo;
+		startTime = sTime;
+	}
+
+	public enum BehaviorStartTimes
+	{
+		Beginning,
+		Middle,
+		End
+	}
+
+	public virtual void PerformBehavior()
+	{
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public BasicObjectInformation AbilityBehaviorInfo 
+	{
+		get { return objectInfo; }
+	}
+
+	public BehaviorStartTimes AbilityBehaviorStartTime 
+	{
+		get { return startTime; }
 	}
 }

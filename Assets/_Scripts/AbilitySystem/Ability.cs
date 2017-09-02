@@ -4,53 +4,36 @@ using UnityEngine;
 
 public class Ability {
 
-	private string name;
-	private string description;
-	private Sprite icon;
+	private BasicObjectInformation objectInfo;
 	private List<AbilityBehaviors> behaviors;
 	private bool requiresTarget;
 	private bool canCastOnSelf;
 	private int cooldown;  //in seconds
 	private GameObject particleEffect; //needs assigned when creating the ability
 
-	public Ability(string aname, Sprite aicon, List<AbilityBehaviors> abehaviors)
+	public Ability(BasicObjectInformation abasicinfo, List<AbilityBehaviors> abehaviors)
 	{
-		name = aname;
-		icon = aicon;
+		objectInfo = abasicinfo;
 		behaviors = new List<AbilityBehaviors> ();
 		behaviors = abehaviors;
 		cooldown = 0;
 		requiresTarget = false;
 		canCastOnSelf = false;
-		description = "Default";
 	}
 
-	public Ability(string aname, string adescription, Sprite aicon, List<AbilityBehaviors> abehaviors, bool arequiretarget, int acooldown, GameObject aparticleeffect)
+	public Ability(BasicObjectInformation abasicinfo, List<AbilityBehaviors> abehaviors, bool arequiretarget, int acooldown, GameObject aparticleeffect)
 	{
-		name = aname;
-		icon = aicon;
+		objectInfo = abasicinfo;
 		behaviors = new List<AbilityBehaviors> ();
 		behaviors = abehaviors;
 		cooldown = acooldown;
 		requiresTarget = arequiretarget;
 		canCastOnSelf = false;
-		description = adescription;
 		particleEffect = aparticleeffect;
 	}
 
-	public string AbilityName
-	{
-		get { return name; }
-	}
-
-	public string AbilityDescription
-	{
-		get { return description; }
-	}
-
-	public Sprite AbilityIcon
-	{
-		get { return icon; }
+	public string AbilityInfo {
+		get { return objectInfo; }
 	}
 
 	public int AbilityCooldown
@@ -63,6 +46,8 @@ public class Ability {
 		get { return behaviors; }
 	}
 
+
+	//This is the method that will be called anytime we use ability
 	public void UseAbility()
 	{
 		
