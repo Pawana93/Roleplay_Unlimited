@@ -8,20 +8,29 @@ public class Ability {
 	private List<AbilityBehaviors> behaviors;
 	private bool requiresTarget;
 	private bool canCastOnSelf;
-	private int cooldown;  //in seconds
+	private float cooldown;  //in seconds
 	private GameObject particleEffect; //needs assigned when creating the ability
+	private float castTime;	//in seconds
+	private float cost;	//like MP or something
+	private AbilityType type;
+
+	public enum AbilityType 
+	{
+		Spell,
+		Melee
+	}
 
 	public Ability(BasicObjectInformation abasicinfo, List<AbilityBehaviors> abehaviors)
 	{
 		objectInfo = abasicinfo;
 		behaviors = new List<AbilityBehaviors> ();
 		behaviors = abehaviors;
-		cooldown = 0;
+		cooldown = 0f;
 		requiresTarget = false;
 		canCastOnSelf = false;
 	}
 
-	public Ability(BasicObjectInformation abasicinfo, List<AbilityBehaviors> abehaviors, bool arequiretarget, int acooldown, GameObject aparticleeffect)
+	public Ability(BasicObjectInformation abasicinfo, List<AbilityBehaviors> abehaviors, bool arequiretarget, float acooldown, GameObject aparticleeffect)
 	{
 		objectInfo = abasicinfo;
 		behaviors = new List<AbilityBehaviors> ();
@@ -32,11 +41,11 @@ public class Ability {
 		particleEffect = aparticleeffect;
 	}
 
-	public string AbilityInfo {
+	public BasicObjectInformation AbilityInfo {
 		get { return objectInfo; }
 	}
 
-	public int AbilityCooldown
+	public float AbilityCooldown
 	{
 		get { return cooldown; }
 	}

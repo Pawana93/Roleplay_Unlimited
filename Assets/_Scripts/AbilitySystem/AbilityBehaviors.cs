@@ -20,9 +20,9 @@ public class AbilityBehaviors : MonoBehaviour {
 		End
 	}
 
-	public virtual void PerformBehavior()
+	public virtual void PerformBehavior(Vector3 startPosition)
 	{
-		
+		Debug.LogWarning ("NEED TO ADD BEHAVIOR");
 	}
 
 	public BasicObjectInformation AbilityBehaviorInfo 
