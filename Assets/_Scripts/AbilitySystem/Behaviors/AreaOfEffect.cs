@@ -5,8 +5,8 @@ using System.Diagnostics;
 
 public class AreaOfEffect : AbilityBehaviors {
 
-	private const string name = "Area of Effect";
-	private const string description = "An area of damage!";
+	private const string abName = "Area of Effect";
+	private const string abDescription = "An area of damage!";
 	private const BehaviorStartTimes startTime = BehaviorStartTimes.End; //on impact
 	//If availabel
 	//private const Sprite icon = Resources.Load("path to icon")
@@ -15,13 +15,16 @@ public class AreaOfEffect : AbilityBehaviors {
 	private float effectDuration;	//how long the effect lasts
 	private Stopwatch durationTimer = new Stopwatch();
 	private float baseEffectDamage;
+	private bool isOccupied;
+	private float damageTickDuration;
 
 
-	public AreaOfEffect(float bAreaRadius, float bEffectDuration, float bBaseEffectDamage) : base(new BasicObjectInformation(name, description), startTime)
+	public AreaOfEffect(float bAreaRadius, float bEffectDuration, float bBaseEffectDamage) : base(new BasicObjectInformation(abName, abDescription), startTime)
 	{
 		areaRadius = bAreaRadius;
 		effectDuration = bEffectDuration;
 		baseEffectDamage = bBaseEffectDamage;
+		isOccupied = false;
 	}
 
 	public override void PerformBehavior(Vector3 startPosition)
@@ -38,6 +41,7 @@ public class AreaOfEffect : AbilityBehaviors {
 		}
 
 		sc.radius = areaRadius;
+		sc.isTrigger = true;
 
 
 
@@ -50,7 +54,11 @@ public class AreaOfEffect : AbilityBehaviors {
 
 		while(durationTimer.Elapsed.TotalSeconds <= effectDuration)
 		{
-			//do damage
+			if(isOccupied)
+			{
+				//do damage
+			}
+			yield return new WaitForSeconds (damageTickDuration);
 		}
 
 		durationTimer.Stop ();
@@ -58,5 +66,21 @@ public class AreaOfEffect : AbilityBehaviors {
 		yield return null;
 	}
 
+	private void OnTriggerEnter(Collider other) 
+	{
+		if (isOccupied) 
+		{
+			//do damage here again
+		}
+		else
+		{
+			isOccupied = true;
+		}
+	}
+
+	private void OnTriggerExit(Collider other) 
+	{
+		isOccupied = false;
+	}
 
 }
