@@ -12,6 +12,13 @@ That's easy. Roleplay_Unlimited is a steadily growing RPG Experience, that combi
 Because that is pretty much for one person, I look for contributions in every kind. Be it editing of the Docs, Character Design in Blender for the game, your own, personal Monster, I take everything as long as it is Open Source.
 If you want to know exactly what I want: Please look in the Issues under the "contribution work" label. Please also just contribute to the proper branches to minimize merging conflicts.
 
+Please contribute to the following links for the matching Source 
+Music: "Link follows"
+Soundeffects: "Link follows"
+Scenes/Sceneparts: "Link follows"
+Characters: "Link follows"
+Weapons: "Link follows"
+
 I'm not looking for any kind of cash solutions or anything that leads to that. Roleplay_Unlimited should be open for everyone who wants to enjoy a little game or to use it as a base for something own.
 
 This is my statement for now. 
