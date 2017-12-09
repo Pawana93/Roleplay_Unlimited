@@ -27,7 +27,7 @@ public class AreaOfEffect : AbilityBehaviors {
 		isOccupied = false;
 	}
 
-	public override void PerformBehavior(Vector3 startPosition)
+	public override void PerformBehavior(GameObject objectHit)
 	{
 		SphereCollider sc;
 
@@ -56,7 +56,7 @@ public class AreaOfEffect : AbilityBehaviors {
 		{
 			if(isOccupied)
 			{
-				//do damage
+				//onDamage(list<targets>, baseDamage)
 			}
 			yield return new WaitForSeconds (damageTickDuration);
 		}

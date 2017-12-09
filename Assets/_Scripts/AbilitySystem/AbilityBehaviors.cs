@@ -20,7 +20,8 @@ public class AbilityBehaviors : MonoBehaviour {
 		End
 	}
 
-	public virtual void PerformBehavior(Vector3 startPosition)
+	//game object wanted, target, 
+	public virtual void PerformBehavior(GameObject objectHit)
 	{
 		Debug.LogWarning ("NEED TO ADD BEHAVIOR");
 	}

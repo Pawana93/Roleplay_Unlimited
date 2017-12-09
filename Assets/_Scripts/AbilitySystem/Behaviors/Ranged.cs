@@ -23,7 +23,7 @@ public class Ranged : AbilityBehaviors {
 		isRandomOn = isRandom;
 	}
 
-	public override void PerformBehavior(Vector3 startPosition)
+	public void PerformBehavior(Vector3 startPosition)
 	{
 		lifeDistance = isRandomOn ? Random.Range (minDistance, maxDistance) : maxDistance;
 
