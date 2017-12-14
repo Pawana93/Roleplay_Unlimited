@@ -19,7 +19,7 @@ public class Slow : AbilityBehaviors {
 		slowPercent = sp;
 	}
 
-	public override void PerformBehavior(GameObject objectHit) 
+	public override void PerformBehavior(GameObject playerObject, GameObject objectHit) 
 	{
 		StartCoroutine(SlowMovement(objectHit));
 	}

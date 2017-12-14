@@ -20,6 +20,15 @@ public class Ability {
 		Melee
 	}
 
+	public Ability(BasicObjectInformation abasicinfo)
+	{
+		objectInfo = abasicinfo;
+		behaviors = new List<global::AbilityBehaviors>();
+		cooldown = 0f;
+		requiresTarget = false;
+		canCastOnSelf = false;
+	}
+
 	public Ability(BasicObjectInformation abasicinfo, List<AbilityBehaviors> abehaviors)
 	{
 		objectInfo = abasicinfo;

@@ -21,7 +21,7 @@ public class AbilityBehaviors : MonoBehaviour {
 	}
 
 	//game object wanted, target, 
-	public virtual void PerformBehavior(GameObject objectHit)
+	public virtual void PerformBehavior(GameObject playerObject, GameObject objectHit)
 	{
 		Debug.LogWarning ("NEED TO ADD BEHAVIOR");
 	}
